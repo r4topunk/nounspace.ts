@@ -201,8 +201,9 @@ function TokensGrid() {
       setTokens(data);
     };
     fetchTokens();
-    const interval = setInterval(fetchTokens, 60000);
-    return () => clearInterval(interval);
+    // Automatically fetch new tokens every minute
+    // const interval = setInterval(fetchTokens, 60000);
+    // return () => clearInterval(interval);
   }, [page]);
 
   return (
