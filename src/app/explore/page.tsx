@@ -22,16 +22,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { formatDistanceToNow } from "date-fns";
-// import {
-//   ChartNoAxesColumn,
-//   ChartNoAxesColumnDecreasing,
-//   ChartNoAxesColumnIncreasing,
-//   CircleDollarSign,
-//   Clock,
-//   Flame,
-//   User,
-// } from "lucide-react";
+import {
+  ChartNoAxesColumn,
+  ChartNoAxesColumnDecreasing,
+  ChartNoAxesColumnIncreasing,
+  CircleDollarSign,
+  Clock,
+  Flame,
+  User,
+} from "lucide-react";
 import { Address } from "viem";
+import { FaFilterCircleDollar } from "react-icons/fa6";
 
 export async function getStaticProps() {
   const posts = await getAllMarkdownFiles();
@@ -249,13 +250,13 @@ export function TokenCard({ token }: { token: Token }) {
               {token.name}
             </h3>
             <div className="flex items-center space-x-1">
-              {/* {token.priceChange === 0 ? (
+              {token.priceChange === 0 ? (
                 <ChartNoAxesColumn className="w-5 h-5 text-gray-900 dark:text-gray-100" />
               ) : token.priceChange < 0 ? (
                 <ChartNoAxesColumnDecreasing className="w-5 h-5 text-red-500 dark:text-red-400" />
               ) : (
                 <ChartNoAxesColumnIncreasing className="w-5 h-5 text-green-500 dark:text-green-400" />
-              )} */}
+              )}
               <span className="font-semibold text-muted-foreground">
                 {token.priceChange.toLocaleString(undefined, {
                   minimumFractionDigits: 2,
@@ -299,7 +300,7 @@ export function TokenCard({ token }: { token: Token }) {
               </div>
             </div>
             <div className="flex items-center space-x-1">
-              {/* <User className="w-4 h-4 text-muted-foreground" /> */}
+              <User className="w-4 h-4 text-muted-foreground" />
               <span className="text-muted-foreground">
                 {token.deployer.score}
               </span>
@@ -309,12 +310,12 @@ export function TokenCard({ token }: { token: Token }) {
 
         <div className="flex items-end justify-between text-sm text-muted-foreground">
           <div className="flex items-center">
-            {/* <Clock className="w-4 h-4 mr-1 text-muted-foreground" /> */}
+            <Clock className="w-4 h-4 mr-1 text-muted-foreground" />
             <span>{timeAgo}</span>
           </div>
           <div className="flex flex-col items-end">
             <div className="flex items-center">
-              {/* <Flame className="w-4 h-4 mr-1 text-muted-foreground" /> */}
+              <Flame className="w-4 h-4 mr-1 text-muted-foreground" />
               <span>
                 $
                 {token.volumeLastHour.toLocaleString(undefined, {
@@ -324,7 +325,7 @@ export function TokenCard({ token }: { token: Token }) {
               </span>
             </div>
             <div className="flex items-center">
-              {/* <CircleDollarSign className="w-4 h-4 mr-1 text-muted-foreground" /> */}
+              <CircleDollarSign className="w-4 h-4 mr-1 text-muted-foreground" />
               <span>
                 $
                 {token.marketCap.toLocaleString(undefined, {
